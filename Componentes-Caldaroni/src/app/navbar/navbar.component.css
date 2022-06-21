@@ -1,1 +1,31 @@
+.container {
+    margin: 0;
+    padding: 0;
+    width: 650px;
+    background-color: rgb(172, 149, 248);
+    height: 100%;
+    overflow: auto;
+}
+
+/* Sidebar links */
+.container a {
+    display: block;
+    color: black;
+    padding: 40px;
+    text-decoration: none;
+    text-align: center;
+}
+
+/* Active/current link */
+.container a.active {
+    background-color: rgb(233, 232, 212);
+    color: black;
+}
+
+/* Links on mouse-over */
+.container a:hover:not(.active) {
+    background-color: rgb(236, 145, 239);
+    color: white;
+}
+
 

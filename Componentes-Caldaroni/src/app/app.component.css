@@ -1,13 +1,16 @@
 .col-12{
-    background-color: pink;
+    background-image: url(/assets/69648590-header-wallpapers.jpg); ;
     height: 200px;
+    border-radius:5px;
 }
 
 .col-4{
-    background-color: blue; 
-    height:900px;
+    background-color: rgb(172, 149, 248); 
+    height:100%vw;
+    border-radius: 5px;
 }
 
 .col-8{
-    background-color: green;
+    background-color: rgb(172, 149, 248);
+    border-radius: 5px;
 }
