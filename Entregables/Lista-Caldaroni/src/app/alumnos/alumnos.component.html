@@ -1,0 +1,25 @@
+<h1 class="display-1 alert alert-info text-center">{{titulo}}</h1>
+<table class="table">
+    <thead class="table-dark">
+        <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Promedio</th>
+            <th scope="col">Estado</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let alumno of alumnos" class="col" [ngClass]="alumno.promedio<6 ? 'table-danger' : 'table-success'">
+            <th scope="row">{{alumno.nombre}}</th>
+            <th>{{alumno.promedio}}</th>
+            <th>{{alumno.estado}}</th>
+        </tr>
+        <br>
+    <h1 class="text-center">Se mostraran de color <span style="color:green">VERDE</span>  las personas aprobadas</h1>
+    <br>
+    <h1 class="text-center">Se mostraran de color <span style="color:red">ROJO</span> las personas desaprobadas</h1>
+    </tbody>
+    
+</table>
+
+
+
