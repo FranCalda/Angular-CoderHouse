@@ -1,0 +1,89 @@
+<h1 class="display-1 alert alert-info text-center">Forms-Caldaroni</h1>
+
+
+<form [formGroup]="formulario" (ngSubmit)="guardar()" class="m-3 col-lg-6">
+    
+        <h2>Datos Personales</h2>
+        <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" formControlName="nombre" class="form-control">
+        </div>
+        <div *ngIf="(this.formulario.get('nombre')?.invalid && (this.formulario.get('nombre')?.dirty || this.formulario.get('nombre')?.touched))" class="alert alert-danger">
+            <span *ngIf="this.formulario.get('nombre')?.errors?.['required']">(El nombre no puede quedar vacío)</span>
+            <span *ngIf="this.formulario.get('nombre')?.errors?.['minlength']">(Como mínimo 3 caracteres)</span>
+            <span *ngIf="this.formulario.get('nombre')?.errors?.['maxlength']">(Excede los 20 caracteres)</span>
+            <span *ngIf="this.formulario.get('nombre')?.errors?.['pattern']">(Ingresar solo letras)</span>
+        </div>
+        
+        <div class="form-group">
+            <label for="apellido">Apellido</label>
+            <input type="text" id="apellido" formControlName="apellido" class="form-control">
+        </div>
+        <div *ngIf="(this.formulario.get('apellido')?.invalid && (this.formulario.get('apellido')?.dirty || this.formulario.get('apellido')?.touched))"
+            class="alert alert-danger">
+            <span *ngIf="this.formulario.get('apellido')?.errors?.['required']">(El apellido no puede quedar vacío)</span>
+            <span *ngIf="this.formulario.get('apellido')?.errors?.['minlength']">(Como mínimo 3 caracteres)</span>
+            <span *ngIf="this.formulario.get('apellido')?.errors?.['maxlength']">(Excede los 20 caracteres)</span>
+            <span *ngIf="this.formulario.get('apellido')?.errors?.['pattern']">(Ingresar solo letras)</span>
+        </div>
+
+        <div class="form-group">
+            <label for="edad">Edad</label>
+            <input type="number" id="edad" formControlName="edad" class="form-control">
+        </div>
+        <div *ngIf="(this.formulario.get('edad')?.invalid && (this.formulario.get('edad')?.dirty || this.formulario.get('edad')?.touched))"
+            class="alert alert-danger">
+            <span *ngIf="this.formulario.get('edad')?.errors?.['required']">(La edad no puede quedar vacía)</span>
+            <span *ngIf="this.formulario.get('edad')?.errors?.['min']">(Debe ser mayor de edad)</span>
+            <span *ngIf="this.formulario.get('edad')?.errors?.['max']">(Excede los años permitidos)</span>
+        </div>
+    <br>
+
+        <h2>Direccion</h2>
+
+        <div class="form-group">
+            <label for="calle">Calle: </label>
+            <input id="calle" type="text" formControlName="calle" class="form-control">
+        </div>
+        <div *ngIf="(this.formulario.get('calle')?.invalid && (this.formulario.get('calle')?.dirty || this.formulario.get('calle')?.touched))"
+            class="alert alert-danger">
+            <span *ngIf="this.formulario.get('calle')?.errors?.['required']">(La calle no puede quedar vacía)</span>
+            <span *ngIf="this.formulario.get('calle')?.errors?.['minlength']">(Como mínimo 3 caracteres)</span>
+            <span *ngIf="this.formulario.get('calle')?.errors?.['maxlength']">(Excede los 20 caracteres)</span>
+            <span *ngIf="this.formulario.get('calle')?.errors?.['pattern']">(Ingresar solo letras)</span>
+        </div>
+
+        <label for="ciudad">Ciudad: </label>
+        <input id="ciudad" type="text" formControlName="ciudad" class="form-control">
+        <div *ngIf="(this.formulario.get('ciudad')?.invalid && (this.formulario.get('ciudad')?.dirty || this.formulario.get('ciudad')?.touched))"
+            class="alert alert-danger">
+            <span *ngIf="this.formulario.get('ciudad')?.errors?.['required']">(La ciudad no puede quedar vacía)</span>
+            <span *ngIf="this.formulario.get('ciudad')?.errors?.['minlength']">(Como mínimo 3 caracteres)</span>
+            <span *ngIf="this.formulario.get('ciudad')?.errors?.['maxlength']">(Excede los 20 caracteres)</span>
+            <span *ngIf="this.formulario.get('ciudad')?.errors?.['pattern']">(Ingresar solo letras)</span>
+        </div>
+    <div class="form-group">
+        <label for="estado">Estado: </label>
+        <input id="estado" type="text" formControlName="estado" class="form-control">
+    </div>
+    <div *ngIf="(this.formulario.get('estado')?.invalid && (this.formulario.get('estado')?.dirty || this.formulario.get('estado')?.touched))"
+        class="alert alert-danger">
+        <span *ngIf="this.formulario.get('estado')?.errors?.['required']">(El estado no puede quedar vacío)</span>
+        <span *ngIf="this.formulario.get('estado')?.errors?.['minlength']">(Como mínimo 3 caracteres)</span>
+        <span *ngIf="this.formulario.get('estado')?.errors?.['maxlength']">(Excede los 20 caracteres)</span>
+        <span *ngIf="this.formulario.get('estado')?.errors?.['pattern']">(Ingresar solo letras)</span>
+    </div>
+    <div class="form-group">
+        <label for="codigoPostal">Codigo Postal: </label>
+        <input id="codigoPostal" type="number" formControlName="codigoPostal" class="form-control">
+    </div>
+    <div *ngIf="(this.formulario.get('codigoPostal')?.invalid && (this.formulario.get('codigoPostal')?.dirty || this.formulario.get('codigoPostal')?.touched))"
+        class="alert alert-danger">
+        <span *ngIf="this.formulario.get('codigoPostal')?.errors?.['required']">(El codigo postal no puede quedar vacío)</span>
+        <span *ngIf="this.formulario.get('codigoPostal')?.errors?.['minlength']">(Como mínimo 3 caracteres)</span>
+        <span *ngIf="this.formulario.get('codigoPostal')?.errors?.['max']">(Excede los 6 valores)</span>
+    </div>
+    
+    <br>
+    <button type="submit" class="btn btn-primary" [disabled]="formulario.invalid">Enviar</button>
+</form>
