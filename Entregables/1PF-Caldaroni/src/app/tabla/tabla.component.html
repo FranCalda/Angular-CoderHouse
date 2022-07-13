@@ -1,0 +1,78 @@
+<mat-toolbar color="primary">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon>polymer</mat-icon>
+    </button>
+    <span>Productos</span>
+    <span class="example-spacer"></span>
+    <button mat-raised-button color="Accent" (click)="abrirCarga()">Agregar Producto</button>
+</mat-toolbar>
+
+<div class="container">
+    <mat-form-field appearance="standard">
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+    </mat-form-field>
+    
+    <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource" matSort>
+    
+    
+            <ng-container matColumnDef="nombre">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre Producto </th>
+                <td mat-cell *matCellDef="let row"> {{row.nombre}} </td>
+            </ng-container>
+    
+    
+            <ng-container matColumnDef="categoria">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> categoria</th>
+                <td mat-cell *matCellDef="let row"> {{row.categoria}} </td>
+            </ng-container>
+    
+    
+            <ng-container matColumnDef="fecha">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha </th>
+                <td mat-cell *matCellDef="let row"> {{row.fecha | date}} </td>
+            </ng-container>
+    
+    
+            <ng-container matColumnDef="estado">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Estado </th>
+                <td mat-cell *matCellDef="let row"> {{row.estado}} </td>
+            </ng-container>
+    
+            <ng-container matColumnDef="precio">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Precio </th>
+                <td mat-cell *matCellDef="let row"> {{row.precio | currency}} </td>
+            </ng-container>
+    
+            <ng-container matColumnDef="comentario">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Comentario </th>
+                <td mat-cell *matCellDef="let row"> {{row.comentario}} </td>
+            </ng-container>
+    
+            <ng-container matColumnDef="action">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </th>
+                <td mat-cell *matCellDef="let row">
+                    <button mat-icon-button (click)="editarProducto(row)" color="accent">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <button mat-icon-button (click)="borrarProducto(row.id)" color="warn">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </td>
+            </ng-container>
+    
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    
+            <!-- Row shown when there is no matching data. -->
+            <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+            </tr>
+        </table>
+    
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+    </div>
+</div>
+
+

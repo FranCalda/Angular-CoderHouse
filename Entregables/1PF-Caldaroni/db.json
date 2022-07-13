@@ -1,0 +1,32 @@
+{
+  "listaProductos": [
+    {
+      "nombre": "Manzana",
+      "categoria": "Alimento",
+      "estado": "Nuevo",
+      "precio": 12,
+      "comentario": "Manzana roja",
+      "fecha": "2022-09-01T03:00:00.000Z",
+      "id": 6
+    },
+    {
+      "nombre": "Avion",
+      "categoria": "Electrodomestico",
+      "estado": "Nuevo",
+      "precio": 11,
+      "comentario": "1",
+      "fecha": "2022-07-05T03:00:00.000Z",
+      "id": 7
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
