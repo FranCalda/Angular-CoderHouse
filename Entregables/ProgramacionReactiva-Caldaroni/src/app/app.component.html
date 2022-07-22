@@ -1,0 +1,35 @@
+<p>
+  <mat-toolbar>
+    <span>Programacion Reactiva-Caldaroni</span>
+  </mat-toolbar>
+</p>
+
+<div layout="row" layout-align="space-around center">
+  <div>
+    <mat-card class="example-card " *ngIf="character" >
+      <mat-card-header>
+        <mat-card-title>{{character.name}}</mat-card-title>
+      </mat-card-header>
+      <img mat-card-image [src]="character.image" alt="Photo of a Shiba Inu">
+      <mat-card-content>
+    
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div>
+    <mat-card class="example-card" *ngIf="characterO$ | async as ch">
+      <mat-card-header>
+        <mat-card-title>{{ch.name}}</mat-card-title>
+      </mat-card-header>
+      <img mat-card-image [src]="ch.image" alt="Photo of a Shiba Inu">
+      <mat-card-content>
+  
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+  
+
+
+
+
