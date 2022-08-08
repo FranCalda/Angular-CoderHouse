@@ -1,0 +1,31 @@
+<div fxLayoutAlign="center center" fxFlexFill class="main-div">
+    <mat-card fxFlex="25">
+        <mat-toolbar color="primary">
+            <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+                <mat-icon>polymer</mat-icon>
+            </button>
+            <span>Ingreso</span>
+            <span class="example-spacer"></span>
+        </mat-toolbar>
+        <form [formGroup]="loginForm" fxLayoutAlign="stretch" fxLayout="column" class="login-form" (ngSubmit)="onSubmit()">
+            <mat-form-field>
+                <mat-label>Email</mat-label>
+                <input formControlName="email" matInput placeholder="Email"
+                    [class.is-invalid]="loginForm.get('email')?.invalid && loginForm.get('email')?.touched"
+                    [class.is-valid]="loginForm.get('email')?.valid && loginForm.get('email')?.touched">
+                <mat-error class="text-danger" *ngIf="loginForm.get('email')?.invalid ">
+                    Se requiere un email valido.
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Contraseña</mat-label>
+                <input formControlName="password" required matInput type="password" placeholder="Contraseña">
+                <mat-error class="text-danger" *ngIf="loginForm.get('contraseña')?.invalid ">
+                    Se requiere una contraseña
+                </mat-error>
+            </mat-form-field>
+            <button mat-raised-button type="submit">Acceder</button>
+        </form>
+    </mat-card>
+</div>
